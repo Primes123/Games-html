@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Кликер</title>
+</head>
+<body>
+	<h1>Кликер</h1>
+	<button id="clickBtn" onclick="increaseScore()">Кликни меня!</button>
+	<p>Очки: <span id="score">0</span></p>
+	<p>Оставшееся время: <span id="timeLeft">30</span> секунд</p>
+	<script>
+        var score = 0;
+        function increaseScore() {
+            score++;
+            document.getElementById("score").innerHTML = score;
+        }
+    </script>
+    <script>
+        var score = 0;
+        var timeLeft = 30;
+        function increaseScore() {
+            score++;
+            document.getElementById("score").innerHTML = score;
+        }
+        function countdown() {
+            if (timeLeft == 0) {
+                alert("Время вышло! Вы набрали " + score + " очков.");
+                location.reload(); // перезагрузка страницы для начала новой игры
+            } else {
+                document.getElementById("timeLeft").innerHTML = timeLeft;
+                timeLeft--;
+                setTimeout(countdown, 1000); // вызов функции countdown каждую секунду
+            }
+        }
+        countdown(); // начать отсчет времени при загрузке страницы
+    </script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        button {
+            font-size: 24px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #3E8E41;
+        }
+        p {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+        
+    
+</body>
+</html>
+
